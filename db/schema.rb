@@ -26,12 +26,12 @@ ActiveRecord::Schema.define(version: 2021_03_16_193314) do
   end
 
   create_table "friendships", force: :cascade do |t|
+    t.bigint "sent_by_id", null: false
     t.bigint "sent_to_id", null: false
-    t.bigint "send_by_id", null: false
     t.boolean "status", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["send_by_id"], name: "index_friendships_on_send_by_id"
+    t.index ["sent_by_id"], name: "index_friendships_on_sent_by_id"
     t.index ["sent_to_id"], name: "index_friendships_on_sent_to_id"
   end
 
@@ -64,6 +64,6 @@ ActiveRecord::Schema.define(version: 2021_03_16_193314) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "friendships", "users", column: "send_by_id"
+  add_foreign_key "friendships", "users", column: "sent_by_id"
   add_foreign_key "friendships", "users", column: "sent_to_id"
 end
