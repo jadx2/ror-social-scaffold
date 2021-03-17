@@ -21,10 +21,12 @@ module ApplicationHelper
   end
 
   def friendship_request(user)
-    if friend_request_sent?(user)
-      '<h4>Pending Request</h4>'.html_safe
-    else
-      render partial: 'friendship_button', locals: { user: user }
+    unless user.id == current_user.id
+      if friend_request_sent?(user)
+        '<h4>Pending Acceptance</h4>'.html_safe
+      else
+        render partial: 'friendship_button', locals: { user: user }
+      end
     end
   end
 end
