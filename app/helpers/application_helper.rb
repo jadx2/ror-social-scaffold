@@ -15,4 +15,16 @@ module ApplicationHelper
       link_to('Like!', post_likes_path(post_id: post.id), method: :post)
     end
   end
+
+  def friend_request_sent?(user)
+    current_user.friend_sent.exists?(sent_to_id: user.id, status: false)
+  end
+
+  def friendship_request(user)
+    if friend_request_sent?(user)
+      '<h4>Pending Request</h4>'.html_safe
+    else
+      render partial: 'friendship_button', locals: { user: user }
+    end
+  end
 end
