@@ -1,6 +1,6 @@
 module ApplicationHelper
   def menu_link_to(link_text, link_path)
-    class_name = current_page?(link_path) ? 'menu-item active' : 'menu-item'
+    class_name = current_page?(link_path) ? "menu-item active" : "menu-item"
 
     content_tag(:div, class: class_name) do
       link_to link_text, link_path
@@ -10,9 +10,9 @@ module ApplicationHelper
   def like_or_dislike_btn(post)
     like = Like.find_by(post: post, user: current_user)
     if like
-      link_to('Dislike!', post_like_path(id: like.id, post_id: post.id), method: :delete)
+      link_to("Dislike!", post_like_path(id: like.id, post_id: post.id), method: :delete)
     else
-      link_to('Like!', post_likes_path(post_id: post.id), method: :post)
+      link_to("Like!", post_likes_path(post_id: post.id), method: :post)
     end
   end
 
@@ -23,10 +23,22 @@ module ApplicationHelper
   def friendship_request(user)
     unless user.id == current_user.id
       if friend_request_sent?(user)
-        '<h4>Pending Acceptance</h4>'.html_safe
+        "<h4>Pending Acceptance</h4>".html_safe
       else
-        render partial: 'friendship_button', locals: { user: user }
+        render partial: "friendship_button", locals: { user: user }
       end
     end
+  end
+
+  def new_notification(user, notice_id, notice_type)
+    notice = user.notifications.build(notice_id: notice_id, notice_type: notice_type)
+    user.notice_seen = false
+    user.save
+    notice
+  end
+
+  def notification_find(notice, type)
+    user = User.find(notice)
+    return "#{user.name} sent you a friend request" if type == "friendRequest"
   end
 end
