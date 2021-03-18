@@ -37,8 +37,8 @@ gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'devise'
 gem 'bulma-rails'
+gem 'devise'
 gem 'font-awesome-sass'
 gem 'rexml'
 gem 'simple_form'
@@ -63,10 +63,10 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'better_errors'
   gem 'rubocop'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'better_errors'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

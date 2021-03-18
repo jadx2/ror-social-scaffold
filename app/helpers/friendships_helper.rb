@@ -8,16 +8,14 @@ module FriendshipsHelper
   end
 
   def friendship_request(user)
-    unless user.id == current_user.id
-      if friend_request_sent?(user)
-        "<h4>Pending Acceptance</h4>".html_safe
-      elsif friend_request_recieved?(user)
-        render partial: "accept_reject_friendship_button", locals: { user: user }
-      elsif check_friendship(user)
-        "<h4>You are already friends</h4>".html_safe
-      else
-        render partial: "friendship_button", locals: { user: user }
-      end
+    if friend_request_sent?(user)
+      '<h4>Pending Acceptance</h4>'.html_safe
+    elsif friend_request_recieved?(user)
+      render partial: 'accept_reject_friendship_button', locals: { user: user }
+    elsif check_friendship(user)
+      '<h4>You are already friends</h4>'.html_safe
+    else
+      render partial: 'friendship_button', locals: { user: user }
     end
   end
 
