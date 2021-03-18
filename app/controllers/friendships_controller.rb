@@ -28,4 +28,13 @@ class FriendshipsController < ApplicationController
     end
     redirect_back(fallback_location: users_path)
   end
+
+  def reject_friend
+    @friendship = Friendship.find_by(sent_by_id: params[:user_id], sent_to_id: current_user.id, status: false)
+    return unless @friendship
+
+    @friendship.destroy
+    flash[:alert] = 'Friend Request Rejected!'
+    redirect_back(fallback_location: users_path)
+  end
 end
