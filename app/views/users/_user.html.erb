@@ -1,7 +1,7 @@
-<li>
-    Name: <%= user.name %>
-    <span class="profile-link">
-      <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
-      <%= friendship_request(user) %>
+<li class='is-flex is-justify-content-space-between'>
+    <%= link_to user.name,  user_path(user), class: 'title is-4 mb-0' %>
+    <span class="profile-link is-flex ml-3">
+      <%= friendship_request(user)%>
     </span>
 </li>
+<hr>

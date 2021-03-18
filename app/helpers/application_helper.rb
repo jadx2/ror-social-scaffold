@@ -20,15 +20,35 @@ module ApplicationHelper
     current_user.friend_sent.exists?(sent_to_id: user.id, status: false)
   end
 
+  def friend_request_recieved?(user)
+    user.friend_sent.exists?(sent_to_id: current_user.id, status: false)
+  end
+
   def friendship_request(user)
     unless user.id == current_user.id
       if friend_request_sent?(user)
-        "<h4>Pending Acceptance</h4>".html_safe
+        '<h4>Pending Acceptance</h4>'.html_safe
+      elsif friend_request_recieved?(user)
+        render partial: 'accept_reject_friendship_button', locals: { user: user }
       else
-        render partial: "friendship_button", locals: { user: user }
+        render partial: 'friendship_button', locals: { user: user }
       end
     end
   end
+
+  # def accept_friendship(user, friends)
+  #   friendship = friends.find_by(sent_by_id: params[user.id], sent_to_id: current_user.id, status: false)
+  #   friendship.status = true
+  #   flash[:notice] = 'Friend Request Accepted!' if friendship.save
+  #   redirect_to users
+  # end
+
+  # def reject_friendship(user, friends)
+  #   request = Friendship.find_by(sent_to_id: params[current_user.id], sent_to_id: params[user.id])
+
+  #   # request.status = true
+  #   flash[:notice] = 'Accept Friends Request'
+  # end
 
   def new_notification(user, notice_id, notice_type)
     notice = user.notifications.build(notice_id: notice_id, notice_type: notice_type)
