@@ -7,9 +7,9 @@
 - Ruby v2.7.0
 - Ruby on Rails v5.2.4
 
-## Live Demo
+## ER Diagram
 
-TBA
+![image](app/assets/images/ERDiagram.png)
 
 
 ## Getting Started
