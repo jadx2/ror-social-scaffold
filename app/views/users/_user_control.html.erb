@@ -1,0 +1,30 @@
+<div class="navbar-item has-dropdown is-hoverable">
+ <a class="navbar-link">
+   <i class="fa fa-bell"></i>
+   <%= current_user.notifications.count %>
+ </a>
+ <div class="navbar-dropdown">
+   <% current_user.notifications.each do |notification| %>
+     <div class="navbar-item">
+       <%= link_to notification_find(notification.notice_id, notification.notice_type), users_path%>
+     </div>
+   <% end %>
+ </div>
+</div>
+<div class="navbar-item has-dropdown is-hoverable">
+ <a class="navbar-link">
+   <%= current_user.name %>
+ </a>
+ <div class="navbar-dropdown">
+   <a class="navbar-item">
+     Your Profile
+   </a>
+   <a class="navbar-item">
+     Friend List
+   </a>
+   <hr class="navbar-divider">
+   <div class="navbar-item">
+     <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+   </div>
+ </div>
+</div>

@@ -1,5 +1,6 @@
 class FriendshipsController < ApplicationController
   include ApplicationHelper
+  include FriendshipsHelper
 
   def create
     @user = User.find(params[:user_id])
