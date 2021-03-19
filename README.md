@@ -9,7 +9,7 @@
 
 ## ER Diagram
 
-![image](app/assets/images/ERDiagram.png)
+![image](docs/ERDiagram.png)
 
 
 ## Getting Started
