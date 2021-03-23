@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
+
 RSpec.feature 'Friendships', type: :feature do
   let(:user1) { User.new(id: 1, name: 'abdul12', email: 'abdul123@gmaol.com', password: '123456') }
   let(:user2) { User.new(id: 2, name: 'jaim12', email: 'jaim12@gmaol.com', password: '123456') }
@@ -48,3 +50,5 @@ RSpec.feature 'Friendships', type: :feature do
     end
   end
 end
+
+# rubocop:enable Metrics/BlockLength
