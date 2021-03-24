@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = Post.all.ordered_by_most_recent
+    @posts = Post.all.ordered_by_most_recent.includes(:user)
     @post = Post.new
   end
 

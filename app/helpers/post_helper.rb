@@ -6,7 +6,9 @@ module PostHelper
   end
 
   def show_post(post)
-    render partial: 'post', locals: { post: post } if current_user.friend_sent.exists?(sent_to_id: post.user_id,
-                                                                                       status: true)
+    unless current_user.id == post.user_id || current_user.friend_sent.exists?(sent_to_id: post.user_id, status: true)
+      return end
+
+    render partial: 'post', locals: { post: post }
   end
 end
