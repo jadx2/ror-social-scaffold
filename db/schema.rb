@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_04_165841) do
+ActiveRecord::Schema.define(version: 2021_03_17_214359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,11 +25,31 @@ ActiveRecord::Schema.define(version: 2020_02_04_165841) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "friendships", force: :cascade do |t|
+    t.bigint "sent_by_id", null: false
+    t.bigint "sent_to_id", null: false
+    t.boolean "status", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sent_by_id"], name: "index_friendships_on_sent_by_id"
+    t.index ["sent_to_id"], name: "index_friendships_on_sent_to_id"
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer "post_id"
     t.integer "user_id"
     t.index ["post_id"], name: "index_likes_on_post_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "notice_id"
+    t.string "notice_type"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "seen", default: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -50,8 +70,12 @@ ActiveRecord::Schema.define(version: 2020_02_04_165841) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "gravatar_url"
+    t.boolean "notice_seen", default: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "friendships", "users", column: "sent_by_id"
+  add_foreign_key "friendships", "users", column: "sent_to_id"
+  add_foreign_key "notifications", "users"
 end
