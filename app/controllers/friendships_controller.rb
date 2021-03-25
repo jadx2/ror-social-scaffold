@@ -2,6 +2,8 @@ class FriendshipsController < ApplicationController
   include ApplicationHelper
   include FriendshipsHelper
 
+  # Using FriendshipsHelper
+
   def create
     @user = User.find(params[:user_id])
     @request_friend = current_user.friend_sent.build(sent_to_id: params[:user_id])
