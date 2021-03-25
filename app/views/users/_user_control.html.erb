@@ -17,10 +17,10 @@
  </a>
  <div class="navbar-dropdown">
    <a class="navbar-item">
-     Your Profile
+    <%= link_to 'Your Profile', current_user %>
    </a>
    <a class="navbar-item">
-     Friend List
+      <%= link_to 'Friend List', users_path %>
    </a>
    <hr class="navbar-divider">
    <div class="navbar-item">
