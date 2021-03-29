@@ -15,4 +15,13 @@ class User < ApplicationRecord
   has_many :friends, -> { merge(Friendship.friends) }, through: :friend_sent, source: :sent_to, dependent: :destroy
 
   has_many :notifications, dependent: :destroy
+
+  def confirm_friend(sender)
+    friend = Friendship.find_by(sent_by_id: sender.id, sent_to_id: id)
+    friend.status = true
+    friend.save
+    Friendship.create!(sent_by_id: id,
+                       sent_to_id: sender.id,
+                       status: true)
+  end
 end
