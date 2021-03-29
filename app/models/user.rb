@@ -13,7 +13,6 @@ class User < ApplicationRecord
                             dependent: :destroy
 
   has_many :friends, -> { merge(Friendship.friends) }, through: :friend_sent, source: :sent_to, dependent: :destroy
-
   has_many :notifications, dependent: :destroy
 
   def confirm_friend(sender)
