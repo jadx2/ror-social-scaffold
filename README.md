@@ -6,6 +6,10 @@
 
 ![image](app/assets/images/screen_shot.png)
 
+## Live Demo
+
+[Demo](https://mysterious-tundra-66669.herokuapp.com/)
+
 ## Built With
 
 - Ruby v3.0.0
@@ -68,7 +72,6 @@ Open `http://localhost:3000/` in your browser.
 
 TBA
 
-
 ## Authors
 
 👨‍💻 **Jaim Delmar**
@@ -82,7 +85,6 @@ TBA
 - Github: [@abdulkhaliqdev](https://github.com/abdulkhaliqdev)
 - Twitter: [@abdulkhaliqdev](https://twitter.com/Abdulkhaliqdev)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/abdul-khaliq-89452b1a9/)
-
 
 ## 🤝 Contributing
 
