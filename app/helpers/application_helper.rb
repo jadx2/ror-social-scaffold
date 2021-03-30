@@ -27,16 +27,4 @@ module ApplicationHelper
       render 'users/signin_signup_button'
     end
   end
-
-  def display_error_and_success
-    if alert.present?
-      "<div class='alert'>
-        <p> #{alert}</p>
-      </div>".html_safe
-    elsif notice.present?
-      "<div class='notice'>
-        <p> #{notice}</p>
-      </div>".html_safe
-    end
-  end
 end

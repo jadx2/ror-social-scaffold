@@ -15,10 +15,10 @@
        <%= link_to 'Open For Friends', root_path, class: 'title mb-0' %>
      </div>
 
-     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
+     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+       <span aria-hidden="true"></span>
+       <span aria-hidden="true"></span>
+       <span aria-hidden="true"></span>
      </a>
    </div>
 
@@ -34,9 +34,18 @@
 
     <div class="navbar-end">
       <%= user_control %>
-    </div>
+   </div>
   </nav>
-  <%= display_error_and_success %>
+  <% if notice.present? %>
+    <div class="notice">
+      <p> <%= notice %> </p>
+    </div>
+  <% end %>
+  <% if alert.present? %>
+    <div class="alert">
+      <p> <%= alert %> </p>
+    </div>
+  <% end %>
     <main class="main">
       <%= yield %>
     </main>
