@@ -1,25 +1,16 @@
-# Open for Friends
+# Scaffold for social media app with Ruby on Rails
 
-> Social media app Build with ruby on rails. In this app users are able to send friend request to other user and become friends of each other.
-
-## Screen Shot
-
-![image](app/assets/images/screen_shot.png)
+> This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
 
 ## Built With
 
-- Ruby v3.0.0
-- Ruby on Rails v6.1.3
-- Rspec Rails v5.0
-- Bulma Rails v0.9.1
-- Capybara v3.26
-- Devises v5.4.0
-- shoulda-matchers v4.0
-- font-awesome scss v5.15.1
-- simple-form v5.1
-- better_errors v2.9.1
-- Rubocop v1.11
-- Postgres
+- Ruby v2.7.0
+- Ruby on Rails v5.2.4
+
+## ER Diagram
+
+![image](docs/ERDiagram.png)
+
 
 ## Getting Started
 
@@ -27,11 +18,9 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-- Ruby: v3.0.0
-- Rails: v6.1.3
-- Postgres: v13.2
-- Node v10.19.0 - v14.15.5
-- Bundle v2.2.3
+Ruby: 2.6.3
+Rails: 5.2.3
+Postgres: >=9.5
 
 ### Setup
 
@@ -47,6 +36,16 @@ Setup database with:
    rails db:create
    rails db:migrate
 ```
+
+### Github Actions
+
+To make sure the linters' checks using Github Actions work properly, you should follow the next steps:
+
+1. On your recently forked repo, enable the GitHub Actions in the Actions tab.
+2. Create the `feature/branch` and push.
+3. Start working on your milestone as usual.
+4. Open a PR from the `feature/branch` when your work is done.
+
 
 ### Usage
 
@@ -64,31 +63,21 @@ Open `http://localhost:3000/` in your browser.
     rpsec --format documentation
 ```
 
+> Tests will be added by Microverse students. There are no tests for initial features in order to make sure that students write all tests from scratch.
+
 ### Deployment
 
 TBA
 
-
 ## Authors
 
-👨‍💻 **Jaim Delmar**
-
-- Github: [@jadx2](https://github.com/jadx2/)
-- Twitter: [@thecatcodes](https://twitter.com/thecatcodes)
-- LinkedIn: [@Jaim Delmar](https://www.linkedin.com/in/jaimdelmar/)
-
-👨‍💻 **Abdul Khaliq**
-
-- Github: [@abdulkhaliqdev](https://github.com/abdulkhaliqdev)
-- Twitter: [@abdulkhaliqdev](https://twitter.com/Abdulkhaliqdev)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/abdul-khaliq-89452b1a9/)
-
+TBA
 
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/jadx2/ror-social-scaffold/issues).
+Feel free to check the [issues page](issues/).
 
 ## Show your support
 
@@ -96,4 +85,9 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Microverse
+TBA
+
+## 📝 License
+
+TBA
+
